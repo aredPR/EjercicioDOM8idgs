@@ -129,3 +129,11 @@ function aplicarFiltros(){
 }
 
 inputBuscar.addEventListener("input", aplicarFiltros);
+
+btnLimpiarBuscar.addEventListener("click", () => {
+
+  inputBuscar.value = "";
+
+  aplicarFiltros();
+
+});
