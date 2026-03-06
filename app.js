@@ -137,3 +137,25 @@ btnLimpiarBuscar.addEventListener("click", () => {
   aplicarFiltros();
 
 });
+
+function actualizarStats(){
+
+  const tareas = document.querySelectorAll(".card");
+
+  const total = tareas.length;
+
+  const visibles = [...tareas].filter(t => t.style.display !== "none").length;
+
+  const favs = [...tareas].filter(t => t.dataset.fav === "1").length;
+
+  statTotal.textContent = total;
+  statVisibles.textContent = visibles;
+  statFavs.textContent = favs;
+
+  if(visibles === 0){
+    emptyState.classList.remove("is-hidden");
+  }else{
+    emptyState.classList.add("is-hidden");
+  }
+
+}
