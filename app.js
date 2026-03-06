@@ -98,3 +98,32 @@ filtros.forEach(btn => {
   });
 
 });
+
+function aplicarFiltros(){
+
+  const tareas = document.querySelectorAll(".card");
+
+  const texto = inputBuscar.value.toLowerCase();
+
+  tareas.forEach(tarea => {
+
+    const tag = tarea.dataset.tag;
+    const fav = tarea.dataset.fav;
+    const titulo = tarea.querySelector(".card__title").textContent.toLowerCase();
+
+    let mostrar = true;
+
+    if(filtroActivo === "frontend" && tag !== "frontend") mostrar = false;
+    if(filtroActivo === "backend" && tag !== "backend") mostrar = false;
+    if(filtroActivo === "ux" && tag !== "ux") mostrar = false;
+    if(filtroActivo === "fav" && fav !== "1") mostrar = false;
+
+    if(!titulo.includes(texto)) mostrar = false;
+
+    tarea.style.display = mostrar ? "" : "none";
+
+  });
+
+  actualizarStats();
+
+}
