@@ -82,3 +82,19 @@ listaTareas.addEventListener("click", function(e){
   aplicarFiltros();
 
 });
+
+filtros.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    filtros.forEach(b => b.classList.remove("is-active"));
+
+    btn.classList.add("is-active");
+
+    filtroActivo = btn.dataset.filter;
+
+    aplicarFiltros();
+
+  });
+
+});
