@@ -127,3 +127,5 @@ function aplicarFiltros(){
   actualizarStats();
 
 }
+
+inputBuscar.addEventListener("input", aplicarFiltros);
